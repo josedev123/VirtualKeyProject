@@ -18,7 +18,7 @@ public class Welcome {
     }
     
 	
-	public static void Welcome() {
+	public static void WelcomeScreen() {
 		System.out.println("Welcome to LockedMe.com");
 		System.out.println("Developed by Jose Thomas");
 	}
@@ -57,6 +57,7 @@ public class Welcome {
 	            System.out.println("Please enter 1, 2 or 3");
 	            MainMenu();
 	        }
+			sc.close();
 	}
 	
 	public static void FileOptionsMenu() {
@@ -98,15 +99,16 @@ public class Welcome {
         }
         catch (Exception e){
             System.out.println("Please enter 1, 2, 3 or 4");
-            MainMenu();
+			FileOptionsMenu();
         }
+        sc.close();
 	}
 	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 			
-		Welcome();
+		WelcomeScreen();
 		InitilizeFolder();
 		MainMenu();
 	}
