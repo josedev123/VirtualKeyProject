@@ -25,11 +25,12 @@ public class Welcome {
 	
 	
 	public static void MainMenu() {
+		Scanner sc = new Scanner(System.in);
 		System.out.println("== Main Menu [enter an option from the list] ==");
 		System.out.println("1. List files in Ascending order");
 		System.out.println("2. Display file options");
 		System.out.println("3. Exit");
-			try(Scanner sc = new Scanner(System.in)) {
+			try {
 			int option = sc.nextInt();
 				switch(option) {
 		            case 1 : {
@@ -59,12 +60,13 @@ public class Welcome {
 	}
 	
 	public static void FileOptionsMenu() {
+		Scanner sc = new Scanner(System.in);
 		System.out.println("== File Options [enter an option from the list] ==");
 		System.out.println("1. Add new file");
 		System.out.println("2. Delete a file");
 		System.out.println("3. Search a file");
 		System.out.println("4. Return to main menu");
-        try(Scanner sc = new Scanner(System.in)) {
+        try {
         	int option = sc.nextInt();
             switch (option){
                 case 1 : {
