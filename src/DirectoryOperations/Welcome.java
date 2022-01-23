@@ -25,25 +25,31 @@ public class Welcome {
 	
 	
 	public static void MainMenu() {
-		System.out.println("==Main Menu [enter an option from the list] ==");
+		System.out.println("== Main Menu [enter an option from the list] ==");
 		System.out.println("1. List files in Ascending order");
 		System.out.println("2. Display file options");
 		System.out.println("3. Exit");
 			try(Scanner sc = new Scanner(System.in)) {
 			int option = sc.nextInt();
-			switch(option) {
-	            case 1 : {
-	            	System.out.println("<<List files>>");
-	            	MainMenu();
-	            }
-	            case 2 : {
-	            	FileOptionsMenu();
-	            }
-	            case 3 : {
-	                System.out.println("Thank You");
-	                System.exit(0);
-	            }
-	            	default: MainMenu();
+				switch(option) {
+		            case 1 : {
+		            	DirFunctions.listFiles(myFolder);
+		            	MainMenu();
+	                    break;
+		            }
+		            case 2 : {
+		            	FileOptionsMenu();
+	                    break;
+		            }
+		            case 3 : {
+		                System.out.println("Thank You");
+		                System.exit(0);
+	                    break;
+		            }
+	            	default: {
+	            		System.out.println("Please enter 1, 2 or 3");
+	            		MainMenu();
+	            	}
 				}
 			}
 	        catch (Exception e){
@@ -53,7 +59,7 @@ public class Welcome {
 	}
 	
 	public static void FileOptionsMenu() {
-		System.out.println("==File Options [enter an option from the list] ==");
+		System.out.println("== File Options [enter an option from the list] ==");
 		System.out.println("1. Add new file");
 		System.out.println("2. Delete a file");
 		System.out.println("3. Search a file");
@@ -64,33 +70,33 @@ public class Welcome {
                 case 1 : {
                     System.out.print("Please enter the file name: ");
                     String filename = sc.next().trim().toLowerCase();
-	            	System.out.println("<<new file:>> " + filename);
+                    DirFunctions.addFile(myFolder, filename);
                     break;
                 }
                 case 2 : {
                     System.out.print("Please enter the file name to delete: ");
                     String filename = sc.next().trim();
-	            	System.out.println("<<delete file:>> " + filename);
+                    DirFunctions.deleteFile(myFolder, filename);
                     break;
                 }
                 case 3 : {
                     System.out.print("Please enter a file name to search:");
                     String filename = sc.next().trim();
-	            	System.out.println("<<search file:>> " + filename);
+                    DirFunctions.searchFile(myFolder, filename);
                     break;
                 }
                 case 4 : {
-                    System.out.println("Back to main menu");
+                    System.out.println("Back to main menuFile");
                     MainMenu();
                     break;
                 }
-                default : System.out.println("Please enter option from the list");
+                default: System.out.println("Please enter 1, 2, 3 or 4");
             }
             FileOptionsMenu();
         }
         catch (Exception e){
-            System.out.println("Please enter correct values to search the data in list");
-            FileOptionsMenu();
+            System.out.println("Please enter 1, 2, 3 or 4");
+            MainMenu();
         }
 	}
 	
